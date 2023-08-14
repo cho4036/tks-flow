@@ -18,6 +18,8 @@ spec:
       value: "tks-admin"
     - name: install-nginx
       value: false
+    - name: keycloak_url
+      value: ""
   volumes:
   - name: config
     secret:
