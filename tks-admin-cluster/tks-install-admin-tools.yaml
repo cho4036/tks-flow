@@ -68,12 +68,12 @@ spec:
               value: "admin-cluster-k8s-api"
             - name: keycloak_credential_secret_name
               value: "keycloak"
-            - name: kecyloak_credential_secret_namespace
+            - name: keycloak_credential_secret_namespace
               value: "keycloak"
             - name: client_role_name
               value: "system:masters"
-            - name: user_name
-              value: "admin"
+            - name: user_names
+              value: '["admin"]'
 
     - - name: install-tks-api-and-harbor
         templateRef:
