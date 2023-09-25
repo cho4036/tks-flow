@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
-  name: set-admin-cluster
+  name: set-user-cluster
   namespace: argo
 spec:
   entrypoint: main
@@ -24,22 +24,6 @@ spec:
         - name: user_names
           value: "{{inputs.parameters.user_names}}"
     steps:
-    - - name: create-client
-        templateRef:
-          name: keycloak-client
-          template: create-client
-        arguments:
-          parameters:
-            - name: server_url
-              value: "{{inputs.parameters.server_url}}"
-            - name: target_realm_name
-              value: "{{inputs.parameters.target_realm_name}}"
-            - name: target_client_id
-              value: "{{inputs.parameters.target_client_id}}"
-            - name: keycloak_credential_secret_name
-              value: "{{inputs.parameters.keycloak_credential_secret_name}}"
-            - name: keycloak_credential_secret_namespace
-              value: "{{inputs.parameters.keycloak_credential_secret_namespace}}"
     - - name: create-client-role
         templateRef:
           name: keycloak-client
